@@ -41,7 +41,11 @@ export function activate(context: vscode.ExtensionContext) {
       const files = await git.diff(["--cached", "--name-only"]);
       const filenames = files.split("\n").filter((f) => f);
 
-      // TODO: Chequear que haya archivos added
+      if (filenames.length === 0) {
+        return vscode.window.showErrorMessage(
+          "There are no files added to commit."
+        );
+      }
 
       for (const filename of filenames) {
         const filePath = getFullPathFile(currentDir, filename);
