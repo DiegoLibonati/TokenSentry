@@ -3,6 +3,8 @@ import * as vscode from "vscode";
 import { CustomPatterns, DefaultPatterns } from "../entities/configuration";
 import { RegexPatterns } from "../entities/extension";
 
+import { isValidRegExpFlags } from "./isValidRegExpFlags";
+
 export const loadPatterns = (): RegexPatterns => {
   const config = vscode.workspace.getConfiguration("tokenSentry");
   const defaultPatterns = config.get<DefaultPatterns>("defaultPatterns") || {};
@@ -13,7 +15,10 @@ export const loadPatterns = (): RegexPatterns => {
   const regexPatterns: RegexPatterns = {};
 
   for (const [name, { pattern, flags }] of Object.entries(allPatterns)) {
-    // TODO: Check if flags are good
+    if (flags && !isValidRegExpFlags(flags)) {
+      regexPatterns[name] = new RegExp(pattern);
+      continue;
+    }
 
     regexPatterns[name] = new RegExp(pattern, flags);
   }
