@@ -1,0 +1,79 @@
+{
+  "name": "tokensentry",
+  "displayName": "TokenSentry",
+  "description": "TokenSentry is an extension that allows to analyze the files added before or during the commit to detect that no sensitive data is uploaded.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tokensentry.alive",
+        "title": "TokenSentry: Alive"
+      },
+      {
+        "command": "tokensentry.checkFiles",
+        "title": "TokenSentry: Check Files"
+      }
+    ],
+    "configuration": {
+      "title": "TokenSentry",
+      "properties": {
+        "tokenSentry.defaultPatterns": {
+          "type": "object",
+          "default": {
+            "GitLab Token": {
+              "pattern": "glpat-[A-Za-z0-9_-]{20}",
+              "flags": "g"
+            },
+            "GitHub Token": {
+              "pattern": "ghp_[A-Za-z0-9]{36}",
+              "flags": "g"
+            }
+          },
+          "description": "Default patterns to detect tokens (do not modify directly)."
+        },
+        "tokenSentry.customPatterns": {
+          "type": "object",
+          "default": {},
+          "description": "Add your own Regex patterns (e.g. 'My Token': {'pattern': 'my_token_[0-9]{32}', 'flags': 'gi'} - flags key is OPTIONAL)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/vscode": "^1.99.0",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.25.1",
+    "eslint": "^9.23.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "simple-git": "^3.27.0"
+  }
+}
