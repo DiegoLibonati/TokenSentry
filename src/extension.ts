@@ -3,8 +3,11 @@ import * as fs from "fs";
 import * as vscode from "vscode";
 import simpleGit from "simple-git";
 
+import { GIT_FOLDER_NAME } from "./constants/vars";
+
 import { getFullPathFile } from "./helpers/getFullPathFile";
 import { loadPatterns } from "./helpers/loadPatterns";
+import { getDirectoriesNameByPath } from "./helpers/getDirectoriesNameByPath";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("Congratulations, your “tokensentry” extension is now active.");
@@ -22,8 +25,6 @@ export function activate(context: vscode.ExtensionContext) {
       const workspaceFolders = vscode.workspace.workspaceFolders;
       const patterns = loadPatterns();
 
-      console.log(patterns);
-
       if (workspaceFolders?.length === 0) {
         return vscode.window.showErrorMessage(
           "You are not standing on any folder."
@@ -32,7 +33,13 @@ export function activate(context: vscode.ExtensionContext) {
 
       const currentDir = workspaceFolders![0].uri.fsPath;
 
-      // TODO: Chequear que exista la carpeta .git.
+      const nameDirs = getDirectoriesNameByPath(currentDir);
+
+      if (!nameDirs.includes(GIT_FOLDER_NAME)) {
+        return vscode.window.showErrorMessage(
+          "Git is not initialized in this folder."
+        );
+      }
 
       vscode.window.showInformationMessage("Checking for tokens...");
 
