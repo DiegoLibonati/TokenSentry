@@ -53,7 +53,7 @@ TokenSentry is an extension that allows to analyze the files added before or dur
 
 ## Video
 
-Coming soon...
+https://github.com/user-attachments/assets/f710b19b-0ed3-4dc8-8481-7b41893482b6
 
 ## Testing
 
