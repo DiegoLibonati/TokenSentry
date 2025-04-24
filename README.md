@@ -4,6 +4,7 @@
 
 1. Clone the repository with `git clone "repository link"`
 2. Join to `TokenSentry` folder and execute: `npm run install` or `yarn install` in the terminal
+3. Enjoy and write code.
 
 ## Test extension under development.
 
