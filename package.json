@@ -2,8 +2,9 @@
   "name": "tokensentry",
   "displayName": "TokenSentry",
   "description": "TokenSentry is an extension that allows to analyze the files added before or during the commit to detect that no sensitive data is uploaded.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "DieLibonati",
+  "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.99.0"
   },
