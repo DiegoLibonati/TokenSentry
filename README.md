@@ -1,5 +1,11 @@
 # TokenSentry
 
+## Educational Purpose
+
+This project was created primarily for **educational and learning purposes**.  
+While it is well-structured and could technically be used in production, it is **not intended for commercialization**.  
+The main goal is to explore and demonstrate best practices, patterns, and technologies in software development.
+
 ## Getting Started
 
 1. Clone the repository with `git clone "repository link"`
@@ -32,20 +38,18 @@ TokenSentry is an extension that allows to analyze the files added before or dur
 #### devDependencies
 
 ```
-"@types/jest": "^29.5.14"
-"@types/node": "20.x"
-"@types/vscode": "^1.99.0"
-"@typescript-eslint/eslint-plugin": "^8.28.0"
-"@typescript-eslint/parser": "^8.28.0"
-"@vscode/test-cli": "^0.0.10"
-"@vscode/test-electron": "^2.4.1"
-"esbuild": "^0.25.1"
-"eslint": "^9.23.0"
-"jest": "^29.7.0"
-"npm-run-all": "^4.1.5"
-"ts-jest": "^29.3.2"
-"ts-node": "^10.9.2"
-"typescript": "^5.8.2"
+"@types/jest": "^29.5.14
+"@types/node": "20.x
+"@types/vscode": "^1.99.0
+"@typescript-eslint/eslint-plugin": "^8.28.0
+"@typescript-eslint/parser": "^8.28.0
+"esbuild": "^0.25.10
+"eslint": "^9.23.0
+"jest": "^29.7.0
+"npm-run-all": "^4.1.5
+"ts-jest": "^29.3.2
+"ts-node": "^10.9.2
+"typescript": "^5.6.3"
 ```
 
 ## Portfolio Link
@@ -59,7 +63,7 @@ https://github.com/user-attachments/assets/f710b19b-0ed3-4dc8-8481-7b41893482b6
 ## Testing
 
 1. Join to `TokenSentry` folder
-2. Execute: `yarn test:jest` or `npm run test:jest`
+2. Execute: `yarn test` or `npm run test`
 
 ## Documentation Extension
 
@@ -67,7 +71,7 @@ https://github.com/user-attachments/assets/f710b19b-0ed3-4dc8-8481-7b41893482b6
 
 ```ts
 APP VERSION: 1.0.0
-README UPDATED: 24/04/2025
+README UPDATED: 25/09/2025
 AUTHOR: Diego Libonati
 ```
 
@@ -130,3 +134,5 @@ const disposable1 = vscode.commands.registerCommand("tokensentry.alive", () => {
     }
 ],
 ```
+
+## Known Issues

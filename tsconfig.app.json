@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "noEmit": false,
+    "types": ["node", "vscode"]
+  },
+  "include": ["src", ".scripts/build.ts"],
+  "exclude": [
+    "node_modules",
+    "tests",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}

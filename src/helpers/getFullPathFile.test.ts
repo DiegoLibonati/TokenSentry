@@ -1,6 +1,6 @@
 import path from "path";
 
-import { getFullPathFile } from "./getFullPathFile";
+import { getFullPathFile } from "@src/helpers/getFullPathFile";
 
 describe("getFullPathFile.ts", () => {
   describe("General Tests.", () => {

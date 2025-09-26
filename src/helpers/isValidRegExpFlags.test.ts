@@ -1,4 +1,4 @@
-import { isValidRegExpFlags } from "./isValidRegExpFlags";
+import { isValidRegExpFlags } from "@src/helpers/isValidRegExpFlags";
 
 describe("isValidRegExpFlags.ts", () => {
   describe("If flags are valid.", () => {

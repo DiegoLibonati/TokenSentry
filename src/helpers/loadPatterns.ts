@@ -1,9 +1,9 @@
 import * as vscode from "vscode";
 
-import { CustomPatterns, DefaultPatterns } from "../entities/configuration";
-import { RegexPatterns } from "../entities/extension";
+import { CustomPatterns, DefaultPatterns } from "@src/entities/configuration";
+import { RegexPatterns } from "@src/entities/extension";
 
-import { isValidRegExpFlags } from "./isValidRegExpFlags";
+import { isValidRegExpFlags } from "@src/helpers/isValidRegExpFlags";
 
 export const loadPatterns = (): RegexPatterns => {
   const config = vscode.workspace.getConfiguration("tokenSentry");

@@ -1,6 +1,6 @@
 import path from "path";
 
-import { getDirectoriesNameByPath } from "./getDirectoriesNameByPath";
+import { getDirectoriesNameByPath } from "@src/helpers/getDirectoriesNameByPath";
 
 describe("getDirectoriesNameByPath.ts", () => {
   describe("General Tests.", () => {

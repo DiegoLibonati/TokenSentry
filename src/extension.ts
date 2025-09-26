@@ -3,11 +3,11 @@ import * as fs from "fs";
 import * as vscode from "vscode";
 import simpleGit from "simple-git";
 
-import { GIT_FOLDER_NAME } from "./constants/vars";
+import { GIT_FOLDER_NAME } from "@src/constants/vars";
 
-import { getFullPathFile } from "./helpers/getFullPathFile";
-import { loadPatterns } from "./helpers/loadPatterns";
-import { getDirectoriesNameByPath } from "./helpers/getDirectoriesNameByPath";
+import { getFullPathFile } from "@src/helpers/getFullPathFile";
+import { loadPatterns } from "@src/helpers/loadPatterns";
+import { getDirectoriesNameByPath } from "@src/helpers/getDirectoriesNameByPath";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("Congratulations, your “tokensentry” extension is now active.");

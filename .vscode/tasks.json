@@ -3,7 +3,7 @@
   "tasks": [
     {
       "label": "watch",
-      "dependsOn": ["npm: watch:tsc", "npm: watch:esbuild"],
+      "dependsOn": ["npm: watch:app", "npm: dev"],
       "presentation": {
         "reveal": "never"
       },
@@ -14,7 +14,7 @@
     },
     {
       "type": "npm",
-      "script": "watch:esbuild",
+      "script": "dev",
       "group": "build",
       "problemMatcher": {
         "owner": "esbuild",
@@ -35,7 +35,7 @@
         }
       },
       "isBackground": true,
-      "label": "npm: watch:esbuild",
+      "label": "npm: dev",
       "presentation": {
         "group": "watch",
         "reveal": "never"
@@ -43,11 +43,11 @@
     },
     {
       "type": "npm",
-      "script": "watch:tsc",
+      "script": "watch:app",
       "group": "build",
       "problemMatcher": "$tsc-watch",
       "isBackground": true,
-      "label": "npm: watch:tsc",
+      "label": "npm: watch:app",
       "presentation": {
         "group": "watch",
         "reveal": "never"
@@ -55,7 +55,7 @@
     },
     {
       "type": "npm",
-      "script": "watch-tests",
+      "script": "watch:test",
       "problemMatcher": "$tsc-watch",
       "isBackground": true,
       "presentation": {
@@ -66,7 +66,7 @@
     },
     {
       "label": "tasks: watch-tests",
-      "dependsOn": ["npm: watch", "npm: watch-tests"],
+      "dependsOn": ["npm: watch", "npm: watch:test"],
       "problemMatcher": []
     }
   ]
