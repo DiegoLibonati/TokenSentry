@@ -2,20 +2,25 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "watch",
-      "dependsOn": ["npm: watch:app", "npm: dev"],
-      "presentation": {
-        "reveal": "never"
-      },
+      "label": "build:extension",
+      "type": "shell",
+      "command": "npm run build",
       "group": {
         "kind": "build",
         "isDefault": true
-      }
+      },
+      "problemMatcher": []
     },
     {
-      "type": "npm",
-      "script": "dev",
+      "label": "watch:extension",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
       "group": "build",
+      "presentation": {
+        "reveal": "never",
+        "clear": true
+      },
       "problemMatcher": {
         "owner": "esbuild",
         "pattern": [
@@ -31,43 +36,9 @@
         "background": {
           "activeOnStart": true,
           "beginsPattern": "^\\[watch\\] build started$",
-          "endsPattern": "^\\[watch\\] build finished$"
+          "endsPattern": "^\\[watch\\] build finished"
         }
-      },
-      "isBackground": true,
-      "label": "npm: dev",
-      "presentation": {
-        "group": "watch",
-        "reveal": "never"
       }
-    },
-    {
-      "type": "npm",
-      "script": "watch:app",
-      "group": "build",
-      "problemMatcher": "$tsc-watch",
-      "isBackground": true,
-      "label": "npm: watch:app",
-      "presentation": {
-        "group": "watch",
-        "reveal": "never"
-      }
-    },
-    {
-      "type": "npm",
-      "script": "watch:test",
-      "problemMatcher": "$tsc-watch",
-      "isBackground": true,
-      "presentation": {
-        "reveal": "never",
-        "group": "watchers"
-      },
-      "group": "build"
-    },
-    {
-      "label": "tasks: watch-tests",
-      "dependsOn": ["npm: watch", "npm: watch:test"],
-      "problemMatcher": []
     }
   ]
 }
